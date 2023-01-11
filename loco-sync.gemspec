@@ -13,6 +13,7 @@ Gem::Specification.new do |spec|
   spec.license = "Apache 2.0"
   spec.platform = Gem::Platform::RUBY
   spec.required_ruby_version = ">= 2.6.0"
+  spec.require_paths = ['lib']
   spec.metadata["rubygems_mfa_required"] = "true"
   spec.files = Dir[
     "README.md", "LICENSE",
