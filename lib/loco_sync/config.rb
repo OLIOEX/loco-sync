@@ -16,7 +16,7 @@ module LocoSync
           format: :rails,
           fallback: :en,
           order: :id,
-          filter: "",
+          filter: "!unused"
         }
       end
 
@@ -28,7 +28,7 @@ module LocoSync
           "ignore-existing": true,
           "tag-absent": "unused",
           "flag-new": "Provisional",
-          "untag-all": "unused",
+          "untag-all": "unused"
         }
       end
 

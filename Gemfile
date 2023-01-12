@@ -2,5 +2,5 @@
 
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in loco-sync.gemspec
+# Specify your gem's dependencies in loco_sync.gemspec
 gemspec
