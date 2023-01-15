@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.license = "Apache-2.0"
   spec.platform = Gem::Platform::RUBY
   spec.required_ruby_version = ">= 2.6.0"
-  spec.require_paths = ["lib"]
+  spec.require_paths = %w(lib)
   spec.metadata["rubygems_mfa_required"] = "true"
   spec.files = Dir[
     "README.md", "LICENSE",
@@ -24,5 +24,5 @@ Gem::Specification.new do |spec|
   spec.extra_rdoc_files = ["README.md"]
 
   spec.add_dependency "faraday", "~>1.4.2"
-  spec.add_dependency 'zeitwerk', '~> 2.4'
+  spec.add_dependency "zeitwerk", "~> 2.4"
 end
