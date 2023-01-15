@@ -2,7 +2,7 @@
 
 require "rake"
 require "loco_sync"
-require "#{LocoSync::Utils.root}/config/initializers/loco_sync"
+require "#{Rails.root}/config/initializers/loco_sync"
 
 namespace :loco_sync do
   desc "Imports translation files from localise.biz to the current Rails project"

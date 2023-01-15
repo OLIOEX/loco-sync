@@ -2,8 +2,8 @@
 
 LocoSync::Config.config do |c|
   # These are mandatory options that you must set before running rake tasks:
-  c.import_api_key = ENV.fetch("LOCO_IMPORT_API_KEY", nil)
-  c.export_api_key = ENV.fetch("LOCO_EXPORT_API_KEY", nil)
+  c.import_api_key = ENV.fetch("LOCO_IMPORT_API_KEY")
+  c.export_api_key = ENV.fetch("LOCO_EXPORT_API_KEY")
 
   # Provide a custom path to the directory with your translation files:
   # c.locales_path = "#{Rails.root}/config/locales"
