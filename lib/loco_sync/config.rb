@@ -16,7 +16,7 @@ module LocoSync
           format: :rails,
           fallback: :en,
           order: :id,
-          filter: "!unused"
+          filter: "!unused",
         }
       end
 
@@ -28,7 +28,7 @@ module LocoSync
           "ignore-existing": true,
           "tag-absent": "unused",
           "flag-new": "Provisional",
-          "untag-all": "unused"
+          "untag-all": "unused",
         }
       end
 
@@ -37,7 +37,7 @@ module LocoSync
       end
 
       def locales
-        @locales || ["en"]
+        @locales || %w(en)
       end
 
       def base_url

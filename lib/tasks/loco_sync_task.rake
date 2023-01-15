@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'rake'
-require 'loco_sync'
+require "rake"
+require "loco_sync"
 require "#{LocoSync::Utils.root}/config/initializers/loco_sync"
 
 namespace :loco_sync do
@@ -26,5 +26,5 @@ namespace :loco_sync do
   end
 
   desc "Sync translations with localise.biz"
-  task sync: [:push, :pull]
+  task sync: %i(export import)
 end

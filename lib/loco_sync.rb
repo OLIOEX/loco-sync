@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'zeitwerk'
+require "zeitwerk"
 
 loader = Zeitwerk::Loader.for_gem
 loader.ignore "#{__dir__}/loco_sync/railtie.rb"
@@ -11,4 +11,4 @@ loader.setup
 module LocoSync
 end
 
-require_relative 'loco_sync/railtie' if defined?(Rails)
+require_relative "loco_sync/railtie" if defined?(Rails)

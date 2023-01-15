@@ -13,8 +13,9 @@ module LocoSync
           @locale = locale
 
           response = client.post do |req|
-              req.body = translations_file
-          end  
+            req.body = translations_file
+          end
+
           response.body
         rescue Faraday::Error => e
           raise "Loco Sync failed to export locale #{locale}: #{e.response[:body]}"
@@ -23,7 +24,7 @@ module LocoSync
         private
 
         def api_key
-          export_api_key
+          config.export_api_key
         end
 
         def url
@@ -31,10 +32,10 @@ module LocoSync
         end
 
         def params
-          export_opts.merge({
-                              locale: locale,
-                              path: "/config/locales/#{locale}.yml"
-                            })
+          config.export_opts.merge({
+            locale: locale,
+            path: "/config/locales/#{locale}.yml",
+          })
         end
       end
     end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'pathname'
+require "pathname"
 
 module LocoSync
   # Util methods

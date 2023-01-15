@@ -11,10 +11,13 @@ module LocoSync
         def import!(locale:)
           @locale = locale
 
-          response = client.get
-          File.open("#{config.locales_path}/#{locale}.yml", "wb") { |path| path.write(response.body) }
-        rescue Faraday::Error => e
-          raise "Loco Sync failed to import locale #{locale}: #{e.response[:body]}"
+          begin
+            response = client.get
+          rescue Faraday::Error => e
+            raise "Loco Sync failed to import locale #{locale}: #{e.response[:body]}"
+          end
+
+          File.binwrite("#{config.locales_path}/#{locale}.yml", response.body)
         end
 
         private
