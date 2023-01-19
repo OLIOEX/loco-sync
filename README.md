@@ -33,15 +33,13 @@ The configuration file will look like the following:
 
 ```ruby
 LocoSync::Config.config do |c|
-  c.import_api_key = ENV['LOCO_IMPORT_API_KEY']
-  c.export_api_key = ENV['LOCO_EXPORT_API_KEY']
+  c.import_api_key = ENV['LOCO_READ_KEY']
 
   # ...other options
 end
 ```
 
-The first to options are mandatory as they are the import and export loco api keys. Add the values to your project's .env file.
-Th other options all have default values. You can change them to adapt the gem functionality to your needs. The gem has the `en` locale set as default. Change or add any number of locales in `locales` configuration option array.
+The first option is mandatory as it is the import loco api key. Add the value to your project's .env file. The second key is the export loco api key. This key is necessary to get the export and sync functionality working however only the import key is mandatory as you possibly will only want to import translations on your development environment. The other options all have default values. You can change them to adapt the gem functionality to your needs. The gem has the `en` locale set as default. Change or add any number of locales in `locales` configuration option array.
 
 ## Usage
 
