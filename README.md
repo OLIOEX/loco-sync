@@ -1,35 +1,70 @@
-# Loco::Sync
+# LocoSync
 
-TODO: Delete this and the text below, and describe your gem
+This gem is an integration for Ruby on Rails and [Loco](https://localise.biz). It enables the import and export of translation files with the Loco api.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/loco/sync`. To experiment with that code, run `bin/console` for an interactive prompt.
+## Getting started
+
+### Requirements
+
+This gem requires Ruby 2.7+ and Rails 5.1+ to work.
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+Add the gem to your `Gemfile`:
 
-Install the gem and add to the application's Gemfile by executing:
+```ruby
+gem 'loco_sync'
+```
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+and run:
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+```
+bundle install
+```
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+then run
+
+```
+rails g loco_sync:install
+```
+
+This command will generate a configuration file for the gem in the `config/initializers` directory of your rails project.
+The configuration file will look like the following:
+
+```ruby
+LocoSync::Config.config do |c|
+  c.import_api_key = ENV['LOCO_READ_KEY']
+
+  # ...other options
+end
+```
+
+The first option is mandatory as it is the import loco api key. Add the value to your project's .env file. The second key is the export loco api key. This key is necessary to get the export and sync functionality working however only the import key is mandatory as you possibly will only want to import translations on your development environment. The other options all have default values. You can change them to adapt the gem functionality to your needs. The gem has the `en` locale set as default. Change or add any number of locales in `locales` configuration option array.
 
 ## Usage
 
-TODO: Write usage instructions here
+To import translations into your Rails app from Loco, run the following command:
 
-## Development
+```
+bundle exec rake loco_sync:import
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+To export translations from your Rails app to Loco, run the following command:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```
+bundle exec rake loco_sync:import
+```
 
-## Contributing
+To sync translations (export then import) with your Rails app and Loco, run the following command:
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/loco-sync.
+```
+bundle exec rake loco_sync:sync
+```
 
-## License
+## Running tests
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+Run `rspec` to run the test suite
+
+### Copyright
+
+Copyright (c) 2022 OLIO Exchange Ltd. See LICENSE.txt for further details.
