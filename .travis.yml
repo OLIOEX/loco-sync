@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+- 3.2.2
+cache:
+- bundler: true
+stages:
+- name: tests
+jobs:
+- stage: tests
+  name: Running tests (Ruby)
+  script:
+  - bundle exec rspec
