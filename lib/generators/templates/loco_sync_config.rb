@@ -30,7 +30,10 @@ LocoSync::Config.config do |c|
   #   "untag-all": "unused"
   # }
 
-  # Locales to import or export
+  # The source of truth for key names to be exported to Loco
+  # c.export_locales = ["en"]
+
+  # Locales to import
   # c.locales = ["en"]
 
   # Loco api base url
