@@ -4,7 +4,7 @@ module LocoSync
   class Config
     class << self
       attr_accessor :import_api_key, :export_api_key
-      attr_writer :import_opts, :export_opts, :locales_path, :locales, :base_url
+      attr_writer :import_opts, :export_opts, :locales_path, :export_locales, :locales, :base_url
 
       def config
         yield self
@@ -38,6 +38,10 @@ module LocoSync
 
       def locales
         @locales || %w(en)
+      end
+
+      def export_locales
+        @export_locales || %w(en)
       end
 
       def base_url

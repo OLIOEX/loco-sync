@@ -2,6 +2,7 @@
 
 require "faraday"
 require "yaml"
+require "rake"
 require "loco_sync"
 require_relative "support/file_manager"
 
