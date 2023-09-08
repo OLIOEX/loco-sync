@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   ]
   spec.extra_rdoc_files = ["README.md"]
 
-  spec.add_dependency "faraday", ">= 2.0"
+  spec.add_dependency "faraday", ">= 1.0"
   spec.add_dependency "zeitwerk", "~> 2.4"
 
   spec.add_development_dependency "rake"
