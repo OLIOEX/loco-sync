@@ -52,7 +52,7 @@ bundle exec rake loco_sync:import
 To export translations from your Rails app to Loco, run the following command:
 
 ```
-bundle exec rake loco_sync:import
+bundle exec rake loco_sync:export
 ```
 
 To sync translations (export then import) with your Rails app and Loco, run the following command:
