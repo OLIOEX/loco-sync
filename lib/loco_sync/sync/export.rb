@@ -34,7 +34,7 @@ module LocoSync
         def params
           config.export_opts.merge({
             locale: locale,
-            path: "/config/locales/#{locale}.yml",
+            path: "/config/locales/#{locale}.yml?format=rails",
           })
         end
       end
