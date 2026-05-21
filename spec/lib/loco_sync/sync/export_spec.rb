@@ -42,7 +42,7 @@ describe LocoSync::Sync::Export do
       it "raises the error with a useful message" do
         expect do
           subject.export!(locale: locale)
-        end.to raise_error("Loco Sync failed to export locale #{locale}: unauthorized error")
+        end.to raise_error(/Loco Sync export failed locale=#{locale} url=.* status=401: unauthorized error/)
       end
     end
   end
