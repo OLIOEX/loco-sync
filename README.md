@@ -61,6 +61,15 @@ To sync translations (export then import) with your Rails app and Loco, run the 
 bundle exec rake loco_sync:sync
 ```
 
+## Error handling
+
+- **Import is fault-tolerant.** Any failure (HTTP error, invalid YAML, wrong root key) is logged via `warn` and either leaves the existing locale file in place or writes a `{locale}: {}` placeholder so Rails still boots. Deploys never abort on Loco issues; the next successful import heals any placeholder.
+- **Export is strict.** Any non-2xx response raises with the locale, URL, HTTP status, body excerpt, and exception class so manual exports fail loudly.
+
+## Authentication
+
+The import endpoint (`GET /api/export/locale/{locale}.{ext}`) is CDN-served and only accepts the API key via the `key` query parameter (an `Authorization` header returns 401 "invalid project key"). All other endpoints accept (and prefer) the `Authorization` header. The gem handles this per-endpoint.
+
 ## Running tests
 
 Run `rspec` to run the test suite
